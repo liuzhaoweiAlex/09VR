@@ -74,7 +74,7 @@ public class T_Character : Base_Character
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("inTrigger");
+        //Debug.Log("inTrigger");
         enemy = other.GetComponent<EnemyBase_Character>();
         dPS1_Character = other.GetComponent<DPS1_Character>();
 

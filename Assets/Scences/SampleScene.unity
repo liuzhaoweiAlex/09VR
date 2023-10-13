@@ -1431,6 +1431,8 @@ GameObject:
   - component: {fileID: 1017194422}
   - component: {fileID: 1017194424}
   - component: {fileID: 1017194423}
+  - component: {fileID: 1017194425}
+  - component: {fileID: 1017194426}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -1609,6 +1611,52 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1017194425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017194417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a367171d95735934bbc897cb52f0f4b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tauntAddValue: 10
+  tauntlimitValue: 16
+  healthlimitValue: 0
+  healthValue: 10
+  attackValue: 3
+  isDirtLoving: 0
+  isAttacked: 0
+  isGetHit: 0
+  inAttackRange: 0
+  CharacterObject:
+  - {fileID: 1017194417}
+  - {fileID: 2005855857}
+  T_tauntValue: 1
+--- !u!65 &1017194426
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017194417}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1026052613
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,6 +2292,73 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1537840878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1537840879}
+  - component: {fileID: 1537840880}
+  - component: {fileID: 1537840881}
+  m_Layer: 0
+  m_Name: T_S_InRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1537840879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537840878}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2005855858}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1537840880
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537840878}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4, y: 2, z: 4}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1537840881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537840878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db28bd6ef0dc29545964c5b29fd0dfd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  t: {fileID: 2005855867}
 --- !u!1 &1545907772
 GameObject:
   m_ObjectHideFlags: 0
@@ -2992,6 +3107,8 @@ GameObject:
   - component: {fileID: 2005855865}
   - component: {fileID: 2005855864}
   - component: {fileID: 2005855866}
+  - component: {fileID: 2005855867}
+  - component: {fileID: 2005855868}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -3013,6 +3130,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2140185075}
+  - {fileID: 1537840879}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &2005855859
@@ -3319,6 +3437,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6df97927e864f184aacade6282a441f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2005855867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005855857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7368afc300f1e04abec53f8c81b20ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tauntAddValue: 10
+  tauntlimitValue: 16
+  healthlimitValue: 0
+  healthValue: 10
+  attackValue: 3
+  isDirtLoving: 0
+  isAttacked: 0
+  isGetHit: 0
+  inAttackRange: 0
+  CharacterObject:
+  - {fileID: 1017194417}
+  - {fileID: 2005855857}
+  defendProb: 20
+  enemyName: Enemy
+  S_skillIsUsed: 0
+--- !u!65 &2005855868
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005855857}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 2.0000002, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2027521793
 GameObject:
   m_ObjectHideFlags: 0
