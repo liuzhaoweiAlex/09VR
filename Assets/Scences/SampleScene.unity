@@ -3463,7 +3463,7 @@ MonoBehaviour:
   - {fileID: 2005855857}
   defendProb: 20
   enemyName: Enemy
-  S_skillIsUsed: 0
+  S_skillIsUsed: 1
 --- !u!65 &2005855868
 BoxCollider:
   m_ObjectHideFlags: 0
