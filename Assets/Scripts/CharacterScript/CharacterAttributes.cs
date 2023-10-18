@@ -3,22 +3,20 @@ using UnityEngine;
 
 public class CharacterAttributes : MonoBehaviour
 {
-    //数据暂时存在脚本中，后续建议存入数据库或建立GlobalData统一管理
-    public float maxHealth = 100f;
     public float currentHealth;
-    public float attackPower = 10f;
-    public float defensePower = 5f;
-    public float speed = 5f;
-    public float attackSpeed = 1f;
-    public float tauntValue = 0f;
     private bool isAttacking = false;
-
+    public float defensePower = 5f;
+    public float attackPower = 10f;
+    public float tauntValue = 0f;//嘲讽值
+    public float tauntCoefficient = 1f;//嘲讽倍数，不同角色一定义此属性
+    public int countAttackNum = 0;
     // 血条对象
     public GameObject healthBar;
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = GlobalData.Instance.maxHealth;
+        countAttackNum = 0;
     }
 
     private void Update()
@@ -29,7 +27,7 @@ public class CharacterAttributes : MonoBehaviour
         if (Input.GetMouseButtonDown(0))  // 当鼠标按下时
         {
             isAttacking = true;
-            InvokeRepeating("Attacking", 0f, attackSpeed);  // 每隔attackSpeed秒调用Attacking方法
+            InvokeRepeating("Attacking", 0f, GlobalData.Instance.attackSpeed);  // 每隔attackSpeed秒调用Attacking方法
         }
 
         if (Input.GetMouseButtonUp(0))  // 当鼠标弹起时
@@ -66,7 +64,7 @@ public class CharacterAttributes : MonoBehaviour
     // 移动
     public void Move(Vector3 direction)
     {
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.Translate(direction * GlobalData.Instance.speed * Time.deltaTime);
     }
 
     // 更新血条显示
@@ -74,7 +72,7 @@ public class CharacterAttributes : MonoBehaviour
     {
         if (healthBar != null)
         {
-            float healthRatio = currentHealth / maxHealth;
+            float healthRatio = currentHealth / GlobalData.Instance.maxHealth;
             healthBar.transform.localScale = new Vector3(healthRatio, 1f, 1f);
         }
     }
@@ -89,5 +87,12 @@ public class CharacterAttributes : MonoBehaviour
     {
         //在这里实现玩家的攻击逻辑
         Debug.Log("Player attack!");
+        countAttackNum++;
     }
+
+    public float Taunt()
+    {
+        return countAttackNum * tauntCoefficient * attackPower;//嘲讽值计算和输出
+    }
+
 }
