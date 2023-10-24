@@ -8,6 +8,7 @@ public class UI : MonoBehaviour
 {
     // Start is called before the first frame update
     public TextMeshProUGUI m_time;
+    public TextMeshProUGUI m_lb;
     public float countdownTime = 60f;
     public GameObject gameOver;
 
@@ -15,6 +16,7 @@ public class UI : MonoBehaviour
     void Start()
     {
         StartCoroutine(StartCountdown());
+        
     }
 
     // Update is called once per frame
@@ -43,5 +45,7 @@ public class UI : MonoBehaviour
             gameOver.SetActive(true);
 
         }
+        m_lb.text = "Points: " + GlobalData.Instance.lb;
+
     }
 }

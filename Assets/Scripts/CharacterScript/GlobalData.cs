@@ -29,6 +29,8 @@ public class GlobalData
 
     public float attackSpeed { get; set; } = 1f;
 
+    public int lb { get; set; } = 100;
+
 
 
 
