@@ -3359,6 +3359,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 894891165}
     - target: {fileID: 251472540384175319, guid: 4904bdbe53574534b8ffc6dd6018b7dc, type: 3}
+      propertyPath: randomYRangea
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 251472540384175319, guid: 4904bdbe53574534b8ffc6dd6018b7dc, type: 3}
+      propertyPath: randomYRangeb
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 251472540384175319, guid: 4904bdbe53574534b8ffc6dd6018b7dc, type: 3}
+      propertyPath: flashSkillTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 251472540384175319, guid: 4904bdbe53574534b8ffc6dd6018b7dc, type: 3}
       propertyPath: healthBarImage
       value: 
       objectReference: {fileID: 1181233728}
