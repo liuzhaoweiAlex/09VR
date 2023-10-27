@@ -25,7 +25,7 @@ public class Character : MonoBehaviour
     /// </summary>
     void DestroySelf()
     {
-        if(character.transform.position.y < minHeightY)
+        if (character.transform.position.y < minHeightY && SpawnManager.instance.isSageTime == false)
         {
             Destroy(character);
         }
@@ -48,7 +48,7 @@ public class Character : MonoBehaviour
         }
         else
         {
-            Debug.Log("不是目标");
+            //Debug.Log("不是目标");
         }
     }
 }

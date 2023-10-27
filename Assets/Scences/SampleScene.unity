@@ -776,6 +776,7 @@ GameObject:
   - component: {fileID: 690949086}
   - component: {fileID: 690949087}
   - component: {fileID: 690949088}
+  - component: {fileID: 690949089}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Untagged
@@ -889,6 +890,20 @@ MonoBehaviour:
   randomYRangeb: 3
   spawnInterval: 2
   charactersCount: 6
+  sageTimeCharactersCount: 8
+--- !u!114 &690949089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690949082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72fc44b5a85aaa34abc0638936493d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSageTime: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -3280,6 +3295,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7310869618958963361, guid: c4bc7e7f26b93d4448e2cd737223b04e, type: 3}
+      propertyPath: spawnCharacter
+      value: 
+      objectReference: {fileID: 690949082}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3293,6 +3312,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 681585291307702803, guid: 67c68e8c72dca8745b2349d4674af16a, type: 3}
+      propertyPath: isSageTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 681585291307702803, guid: 67c68e8c72dca8745b2349d4674af16a, type: 3}
+      propertyPath: spawnCharacter
+      value: 
+      objectReference: {fileID: 690949082}
     - target: {fileID: 910253959567621786, guid: 67c68e8c72dca8745b2349d4674af16a, type: 3}
       propertyPath: m_Name
       value: Archer
@@ -3378,6 +3405,10 @@ PrefabInstance:
       propertyPath: CharacterDamage
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 251472540384175319, guid: 4904bdbe53574534b8ffc6dd6018b7dc, type: 3}
+      propertyPath: originalPosition
+      value: 
+      objectReference: {fileID: 5889636747461496606}
     - target: {fileID: 840080145437362559, guid: 4904bdbe53574534b8ffc6dd6018b7dc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.34
@@ -3430,6 +3461,11 @@ PrefabInstance:
       addedObject: {fileID: 1868278596}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4904bdbe53574534b8ffc6dd6018b7dc, type: 3}
+--- !u!1 &5889636747461496606 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3558896579201974542, guid: 4904bdbe53574534b8ffc6dd6018b7dc, type: 3}
+  m_PrefabInstance: {fileID: 5889636747461496605}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6461192375356501625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3486,6 +3522,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Berserker
       objectReference: {fileID: 0}
+    - target: {fileID: 7803147907937369150, guid: 0e97af2a7e471ad4cb3491193e119898, type: 3}
+      propertyPath: spawnCharacter
+      value: 
+      objectReference: {fileID: 690949082}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3503,6 +3543,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: knight
       objectReference: {fileID: 0}
+    - target: {fileID: 3197294745599417333, guid: 6bea28fdf9703a74ca3d93de626fb37c, type: 3}
+      propertyPath: spawnCharacter
+      value: 
+      objectReference: {fileID: 690949082}
     - target: {fileID: 6130345102365517718, guid: 6bea28fdf9703a74ca3d93de626fb37c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.416

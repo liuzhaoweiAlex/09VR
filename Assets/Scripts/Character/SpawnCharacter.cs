@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Searcher;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class SpawnCharacter : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class SpawnCharacter : MonoBehaviour
     public float randomYRangeb = 3f; // 随机Y位置的范围b
     public float spawnInterval = 2.0f; // 生成对象的间隔时间（秒）
     public int charactersCount = 20; // 场上角色数量
+    public int sageTimeCharactersCount = 30; // 贤者时间时场上角色的数量
 
     private Coroutine spawnCoroutine; // 储存协程引用
 
@@ -41,7 +44,7 @@ public class SpawnCharacter : MonoBehaviour
         characterInScene.Add(Berserker);
         characterInScene.Add(knight);
         characterInScene.Add(Sage);
-
+        
         while (true) 
         {
             yield return new WaitForSeconds(spawnInterval);
@@ -60,11 +63,37 @@ public class SpawnCharacter : MonoBehaviour
             // 计算随机哪个角色  
             int randomInt = Random.Range(0, 4);
 
-            if(GameObject.FindGameObjectsWithTag("Character").Length < charactersCount)
+            int currentCharactersCount = charactersCount;
+
+            if (SpawnManager.instance.isSageTime == true)
+            {
+                Debug.Log("贤者时间");
+                currentCharactersCount = sageTimeCharactersCount; // 如果是贤者时间，上调存在上限
+            }
+            else
+            {
+                Debug.Log("非贤者时间");
+                currentCharactersCount = charactersCount;
+            }
+
+            if (GameObject.FindGameObjectsWithTag("Character").Length < currentCharactersCount)
             {
                 // 在该位置生成角色实例 
                 Instantiate(characterInScene[randomInt], randomPosition, Quaternion.Euler(0, UnityEngine.Random.Range(0, 360), 0));
             }
         }
     }
+
+    //private void JudgeSageTime()
+    //{
+    //    foreach (GameObject item in characters) // 遍历勇者列表
+    //    {
+    //        if (item.GetComponent<Character>().isSageTime == true) // 如果列表中的角色是处于贤者时间，那么更改生成上限
+    //        {
+    //            Debug.Log(item); // 打印每个元素到控制台
+    //            charactersCount = sageTimeCharactersCount;
+    //            Debug.Log(charactersCount);
+    //        }
+    //    }
+    //}
 }
