@@ -12,8 +12,13 @@ public class BossComponent : MonoBehaviour
     public float currentHealth;
     public float defensePower = 5f;
     public float attackPower = 10f;
-    public float CharacterDamage = 50f;
+    public float CharacterDamage = 20f;
+    public float berserker_on = 40f;
     public GameObject win;
+    public GameObject damage_r;
+    public bool flag_r=false;
+    public float time1 = 0f;
+    public TextMeshProUGUI text_r;
 
     public Image healthBarImage; // ÑªÌõÍ¼Æ¬
 
@@ -45,6 +50,15 @@ public class BossComponent : MonoBehaviour
 
         //float step = moveSpeed * Time.deltaTime;
         //transform.position = Vector3.MoveTowards(transform.position, targetPosition1.transform.position, step);
+        if (flag_r)
+        {
+            time1 += Time.deltaTime;
+            if (time1 > 1)
+            {
+                damage_r.SetActive(false);
+                flag_r = false;
+            }
+        }
     }
 
     public void TakeDamage(float damage)
@@ -64,6 +78,10 @@ public class BossComponent : MonoBehaviour
         Debug.Log("·ÀÓù£º" + defensePower);
         Debug.Log("ÕæÊµÔì³ÉÉËº¦£º" + actuallDamage);
         Debug.Log("µ±Ç°ÑªÁ¿£º" + currentHealth);
+        if (flag_r)
+        {
+            text_r.text = actuallDamage+"!!";
+        }
     }
 
     void UpdateHealthBar()
@@ -74,9 +92,31 @@ public class BossComponent : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponentInParent<Character>() != null)
+        //if (collision.gameObject.GetComponentInParent<Character>() != null)
+        //{
+        //    Debug.Log("¹¥»÷ÉËº¦£º"+ CharacterDamage);
+        //    TakeDamage(CharacterDamage);
+        //}
+        if (collision.gameObject.GetComponentInParent<Berserker>() != null)
         {
-            Debug.Log("¹¥»÷ÉËº¦£º"+ CharacterDamage);
+            if (GlobalData.Instance.berserker)
+            {
+                Debug.Log("¹¥»÷ÉËº¦£º" + berserker_on);
+                damage_r.SetActive(true);
+                flag_r = true;
+                TakeDamage(berserker_on);
+                
+            }
+            else
+            {
+                Debug.Log("¹¥»÷ÉËº¦£º" + CharacterDamage);
+                TakeDamage(CharacterDamage);
+            }
+           
+        }
+        if (collision.gameObject.GetComponentInParent<Archer>() != null)
+        {
+            Debug.Log("¹¥»÷ÉËº¦£º" + CharacterDamage);
             TakeDamage(CharacterDamage);
         }
     }

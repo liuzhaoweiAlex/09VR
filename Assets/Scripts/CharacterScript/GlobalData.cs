@@ -29,6 +29,10 @@ public class GlobalData
 
     public float attackSpeed { get; set; } = 1f;
 
+    public bool berserker { get; set; } = false;
+
+    public bool archer { get; set; } = false;
+
     public int lb { get; set; } = 100;
 
 

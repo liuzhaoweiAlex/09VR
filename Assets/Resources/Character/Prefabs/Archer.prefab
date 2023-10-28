@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 406913712880292407}
   - component: {fileID: 3058423512092632487}
   - component: {fileID: 681585291307702803}
+  - component: {fileID: 3975501761182319657}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Character
@@ -37,6 +38,7 @@ Transform:
   m_Children:
   - {fileID: 8926693779034536116}
   - {fileID: 2787781447194161998}
+  - {fileID: 6124056403614315623}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1736199139052602652
@@ -187,7 +189,19 @@ MonoBehaviour:
       m_Calls: []
   m_Activated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3975501761182319657}
+        m_TargetAssemblyTypeName: Archer, Assembly-CSharp
+        m_MethodName: intensify
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -278,6 +292,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 910253959567621786}
   minHeightY: 0.5
+--- !u!114 &3975501761182319657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910253959567621786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4764ff9de87ef4ca8c45ca9298b3f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 30
+  time1: 0
+  player: {fileID: 910253959567621786}
+  enemy: {fileID: 6030840944028162394}
+  enemy_x: 0
+  enemy_y: 0
+  player_x: 0
+  player_y: 0
+  speed: 1
+  target: {fileID: 6124056403614315623}
 --- !u!1 &5357101476368378558
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,3 +412,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   t: {fileID: 0}
+--- !u!1 &6030840944028162394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6124056403614315623}
+  m_Layer: 0
+  m_Name: pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6124056403614315623
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6030840944028162394}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.009, y: 0.298, z: 1.946}
+  m_LocalScale: {x: 0.38864, y: 0.1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6076098130397535091}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

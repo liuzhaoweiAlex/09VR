@@ -68,6 +68,7 @@ GameObject:
   - component: {fileID: 8347961250804998739}
   - component: {fileID: 4875277214777113061}
   - component: {fileID: 7803147907937369150}
+  - component: {fileID: 446148851979967249}
   m_Layer: 0
   m_Name: Berserker
   m_TagString: Character
@@ -240,7 +241,19 @@ MonoBehaviour:
       m_Calls: []
   m_Activated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 446148851979967249}
+        m_TargetAssemblyTypeName: Berserker, Assembly-CSharp
+        m_MethodName: intensify
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -331,6 +344,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 5828269410357182166}
   minHeightY: 0.5
+--- !u!114 &446148851979967249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5828269410357182166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2377ac5f5749eae46801b66109cf875d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 40
+  time1: 0
 --- !u!1 &6082458449392659679
 GameObject:
   m_ObjectHideFlags: 0
