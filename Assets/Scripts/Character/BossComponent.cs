@@ -98,6 +98,19 @@ public class BossComponent : MonoBehaviour
     {
         float fillAmount = currentHealth / maxHealth;
         healthBarImage.fillAmount = fillAmount;
+        if(fillAmount<=1 && fillAmount > 0.7)
+        {
+            
+            healthBarImage.color = new Color32(130,24,152,255);
+        }
+        if(fillAmount<=0.7 && fillAmount > 0.3)
+        {
+            healthBarImage.color = new Color32(255, 220, 80, 255);
+        }
+        if (fillAmount <= 0.3)
+        {
+            healthBarImage.color = new Color32(255, 0, 0, 255);
+        }
     }
 
     public void OnCollisionEnter(Collision collision)
