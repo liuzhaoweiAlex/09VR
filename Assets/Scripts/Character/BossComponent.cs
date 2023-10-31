@@ -36,6 +36,8 @@ public class BossComponent : MonoBehaviour
 
     public bool flashSkillTime = false; // 是否处于闪烁技能赋值
 
+    private AudioSource audioSource; // 获得音效组件
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -63,6 +65,7 @@ public class BossComponent : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        PlayHitSound(); // 播放受击音效
         float actuallDamage = damage - defensePower;
         if(actuallDamage <= 0)
         { 
@@ -148,6 +151,18 @@ public class BossComponent : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return new WaitForSeconds(1); // 让协程等待1秒钟，然后重新开始下一轮循环（移动、等待）
         }
+    }
+
+    /// <summary>
+    /// 播放音效
+    /// </summary>
+    public void PlayHitSound()
+    {
+        // 获取音频源组件 
+        audioSource = GetComponent<AudioSource>();
+
+        // 播放音效  
+        audioSource.Play();
     }
 }
 

@@ -2592,52 +2592,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862689127}
   m_CullTransparentMesh: 1
---- !u!1 &1868278594
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1868278596}
-  - component: {fileID: 1868278597}
-  m_Layer: 0
-  m_Name: BossHP
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1868278596
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1868278594}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.129, y: 1.235, z: -0.78}
-  m_LocalScale: {x: 2.5730531, y: 2.5730531, z: 2.5730531}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1668164238}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1868278597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1868278594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 917c01734fb61ff43a140ce5aa2ec66e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHead: {fileID: 1868278596}
-  healthBarImage: {fileID: 1181233728}
 --- !u!1 &1977846970 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 910253959567621786, guid: 67c68e8c72dca8745b2349d4674af16a, type: 3}
@@ -3507,29 +3461,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 902759519}
     - target: {fileID: 251472540384175319, guid: 4904bdbe53574534b8ffc6dd6018b7dc, type: 3}
-      propertyPath: randomYRangea
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 251472540384175319, guid: 4904bdbe53574534b8ffc6dd6018b7dc, type: 3}
-      propertyPath: randomYRangeb
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 251472540384175319, guid: 4904bdbe53574534b8ffc6dd6018b7dc, type: 3}
-      propertyPath: flashSkillTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 251472540384175319, guid: 4904bdbe53574534b8ffc6dd6018b7dc, type: 3}
       propertyPath: healthBarImage
       value: 
       objectReference: {fileID: 1181233728}
-    - target: {fileID: 251472540384175319, guid: 4904bdbe53574534b8ffc6dd6018b7dc, type: 3}
-      propertyPath: CharacterDamage
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 251472540384175319, guid: 4904bdbe53574534b8ffc6dd6018b7dc, type: 3}
-      propertyPath: originalPosition
-      value: 
-      objectReference: {fileID: 5889636747461496606}
     - target: {fileID: 840080145437362559, guid: 4904bdbe53574534b8ffc6dd6018b7dc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.34
@@ -3574,12 +3508,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 8810199481065613592, guid: 4904bdbe53574534b8ffc6dd6018b7dc, type: 3}
+      propertyPath: healthBarImage
+      value: 
+      objectReference: {fileID: 1181233728}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 840080145437362559, guid: 4904bdbe53574534b8ffc6dd6018b7dc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1868278596}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4904bdbe53574534b8ffc6dd6018b7dc, type: 3}
 --- !u!1 &5889636747461496606 stripped
