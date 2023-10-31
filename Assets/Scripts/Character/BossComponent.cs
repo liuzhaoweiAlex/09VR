@@ -38,6 +38,8 @@ public class BossComponent : MonoBehaviour
 
     private AudioSource audioSource; // 获得音效组件
 
+    private ParticleSystem hitParticle; // 获得受击特效
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -45,6 +47,9 @@ public class BossComponent : MonoBehaviour
 
         initialPosition = transform.position; // 记录初始位置  
         StartCoroutine(MoveObjectCoroutine()); // 在Start函数中开始协程 
+
+        //PlayHitParticles(); // 播放特效测试
+        //PlayHitSound(); // 播放音效测试
     }
 
     void Update()
@@ -66,6 +71,8 @@ public class BossComponent : MonoBehaviour
     public void TakeDamage(float damage)
     {
         PlayHitSound(); // 播放受击音效
+        PlayHitParticles(); // 播放受击特效
+
         float actuallDamage = damage - defensePower;
         if(actuallDamage <= 0)
         { 
@@ -163,6 +170,18 @@ public class BossComponent : MonoBehaviour
 
         // 播放音效  
         audioSource.Play();
+    }
+
+    /// <summary>
+    /// 播放受击特效
+    /// </summary>
+    public void PlayHitParticles()
+    {
+        // 获取特效源组件
+        hitParticle = GameObject.Find("Boss").GetComponentInChildren<ParticleSystem>();
+
+        // 播放特效
+        hitParticle.Play();
     }
 }
 
