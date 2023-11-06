@@ -20,7 +20,7 @@ public class GoMenu : MonoBehaviour
     {
         if (collision.gameObject.GetComponentInParent<Character>() != null)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(1);
         }
 
     }

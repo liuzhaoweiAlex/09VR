@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
@@ -18,9 +19,16 @@ public class BossComponent : MonoBehaviour
     public GameObject damage_r;
     public bool flag_r=false;
     public float time1 = 0f;
+    public float time2 = 0f;
     public TextMeshProUGUI text_r;
+    public TextMeshProUGUI text_skill;
+    public GameObject loading_berkerker;
+    public GameObject loading_berkerker_b;
+    public GameObject loading_archer;
+    public GameObject loading_archer_b;
 
     public Image healthBarImage; // ÑªÌõÍ¼Æ¬
+    public Image loading_b;
 
     public GameObject originalPosition; // Ô­Ê¼Î»ÖÃ
 
@@ -66,6 +74,34 @@ public class BossComponent : MonoBehaviour
                 flag_r = false;
             }
         }
+        if (GlobalData.Instance.berserker)
+        {
+            time2 = 10f;
+            time2 -= Time.deltaTime;
+            text_skill.text = "Berserker: " + (int)time2;
+            loading_b.fillAmount = time2/10f;
+            loading_berkerker.SetActive(true);
+            loading_berkerker_b.SetActive(true);
+        }
+        else
+        {
+            loading_berkerker.SetActive(false);
+            loading_berkerker_b.SetActive(false);
+        }
+        if (GlobalData.Instance.archer)
+        {
+            time2 = 15f;
+            time2 -= Time.deltaTime;
+            text_skill.text = "Archer: " + (int)time2;
+            loading_b.fillAmount = time2 / 15f;
+            loading_archer.SetActive(true);
+            loading_archer_b.SetActive(true);
+        }
+        else
+        {
+            loading_archer.SetActive(false);
+            loading_archer_b.SetActive(false);
+        }
     }
 
     public void TakeDamage(float damage)
@@ -83,6 +119,7 @@ public class BossComponent : MonoBehaviour
         if(currentHealth <= 0)
         {
             win.SetActive(true);
+            SceneManager.LoadScene(3);
         }
 
         Debug.Log("·ÀÓù£º" + defensePower);
@@ -114,6 +151,7 @@ public class BossComponent : MonoBehaviour
     }
 
     public void OnCollisionEnter(Collision collision)
+   // public void OnTriggerEnter(Collider collision)
     {
         //if (collision.gameObject.GetComponentInParent<Character>() != null)
         //{
@@ -138,6 +176,16 @@ public class BossComponent : MonoBehaviour
            
         }
         if (collision.gameObject.GetComponentInParent<Archer>() != null)
+        {
+            Debug.Log("¹¥»÷ÉËº¦£º" + CharacterDamage);
+            TakeDamage(CharacterDamage);
+        }
+        if (collision.gameObject.GetComponentInParent<Sage>() != null)
+        {
+            Debug.Log("¹¥»÷ÉËº¦£º" + CharacterDamage);
+            TakeDamage(CharacterDamage);
+        }
+        if (collision.gameObject.GetComponentInParent<Knight>() != null)
         {
             Debug.Log("¹¥»÷ÉËº¦£º" + CharacterDamage);
             TakeDamage(CharacterDamage);

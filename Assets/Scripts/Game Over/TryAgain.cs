@@ -20,7 +20,7 @@ public class TryAgain : MonoBehaviour
     {
         if (collision.gameObject.GetComponentInParent<Character>() != null)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
    
     }
