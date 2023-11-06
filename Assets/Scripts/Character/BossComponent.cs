@@ -71,7 +71,7 @@ public class BossComponent : MonoBehaviour
     public void TakeDamage(float damage)
     {
         PlayHitSound(); // 播放受击音效
-        PlayHitParticles(); // 播放受击特效
+        //PlayHitParticles(); // 播放受击特效
 
         float actuallDamage = damage - defensePower;
         if(actuallDamage <= 0)

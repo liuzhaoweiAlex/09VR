@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6054492006014420232}
   - component: {fileID: 1378291300255559777}
   - component: {fileID: 7310869618958963361}
+  - component: {fileID: 8317789685624222751}
   m_Layer: 0
   m_Name: Sage
   m_TagString: Character
@@ -278,6 +279,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1877009466194373303}
   minHeightY: 0.5
+--- !u!114 &8317789685624222751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877009466194373303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a0f0e01886fed241abcf8d4c9cb5486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4062858768838416021
 GameObject:
   m_ObjectHideFlags: 0
