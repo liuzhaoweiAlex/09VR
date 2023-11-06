@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class UI : MonoBehaviour
         if (countdownTime <= 0)
         {
             gameOver.SetActive(true);
+            SceneManager.LoadScene(0);
 
         }
         m_lb.text = "Points: " + GlobalData.Instance.lb;
