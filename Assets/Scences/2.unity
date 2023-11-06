@@ -3869,6 +3869,7 @@ MonoBehaviour:
   randomYRangeb: 3
   spawnInterval: 2
   charactersCount: 6
+  sageTimeCharactersCount: 30
 --- !u!1001 &692473521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4985,7 +4986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5440707293445741943, guid: 494f6d43e170e9145bc7865d243ee00b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.7435899
+      value: 2.71
       objectReference: {fileID: 0}
     - target: {fileID: 5440707293445741943, guid: 494f6d43e170e9145bc7865d243ee00b, type: 3}
       propertyPath: m_LocalPosition.y
