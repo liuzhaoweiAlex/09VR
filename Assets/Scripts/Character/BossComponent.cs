@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
+using static UnityEngine.ParticleSystem;
 
 public class BossComponent : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class BossComponent : MonoBehaviour
         initialPosition = transform.position; // 记录初始位置  
         StartCoroutine(MoveObjectCoroutine()); // 在Start函数中开始协程 
 
-        //PlayHitParticles(); // 播放特效测试
+        PlayHitParticles(); // 播放特效测试
         //PlayHitSound(); // 播放音效测试
     }
 
@@ -177,11 +178,14 @@ public class BossComponent : MonoBehaviour
     /// </summary>
     public void PlayHitParticles()
     {
-        // 获取特效源组件
-        hitParticle = GameObject.Find("Boss").GetComponentInChildren<ParticleSystem>();
+        // 获得特效
+        GameObject hitParticle = Instantiate( Resources.Load<GameObject>("Art/VFX/CFX_Explosion_B_Smoke+Text") );  // 从资源中加载特效预设        
+
+        // 设置特效位置
+        hitParticle.transform.parent = GameObject.Find("Boss").transform;
 
         // 播放特效
-        hitParticle.Play();
+        hitParticle.GetComponent<ParticleSystem>().Play();
     }
 }
 

@@ -29,7 +29,7 @@ public class SpawnCharacter : MonoBehaviour
     }
 
     /// <summary>
-    /// 每隔2秒生成一个料理
+    ///生成勇者
     /// </summary>
     /// <returns></returns>
     IEnumerator SpawnCharacters()
@@ -83,17 +83,4 @@ public class SpawnCharacter : MonoBehaviour
             }
         }
     }
-
-    //private void JudgeSageTime()
-    //{
-    //    foreach (GameObject item in characters) // 遍历勇者列表
-    //    {
-    //        if (item.GetComponent<Character>().isSageTime == true) // 如果列表中的角色是处于贤者时间，那么更改生成上限
-    //        {
-    //            Debug.Log(item); // 打印每个元素到控制台
-    //            charactersCount = sageTimeCharactersCount;
-    //            Debug.Log(charactersCount);
-    //        }
-    //    }
-    //}
 }
