@@ -49,7 +49,7 @@ public class BossComponent : MonoBehaviour
         initialPosition = transform.position; // 记录初始位置  
         StartCoroutine(MoveObjectCoroutine()); // 在Start函数中开始协程 
 
-        PlayHitParticles(); // 播放特效测试
+        //PlayHitParticles(); // 播放特效测试
         //PlayHitSound(); // 播放音效测试
     }
 
