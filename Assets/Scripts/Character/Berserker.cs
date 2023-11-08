@@ -18,16 +18,16 @@ public class Berserker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GlobalData.Instance.berserker == true)
-        {
-            time1 += Time.deltaTime;
-            if (time1 > 10)
-            {
-                GlobalData.Instance.berserker = false;
-                time1 = 0f;
-                Debug.Log("berserker off");
-            }
-        }
+        //if (GlobalData.Instance.berserker == true)
+        //{
+        //    time1 += Time.deltaTime;
+        //    if (time1 > 10)
+        //    {
+        //        GlobalData.Instance.berserker = false;
+        //        time1 = 0f;
+        //        Debug.Log("berserker off");
+        //    }
+        //}
     }
 
     public void intensify()

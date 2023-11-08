@@ -20,16 +20,20 @@ public class BossComponent : MonoBehaviour
     public GameObject damage_r;
     public bool flag_r=false;
     public float time1 = 0f;
-    public float time2 = 0f;
+    public float time2 = 10f;
+    public float time3 = 15f;
     public TextMeshProUGUI text_r;
     public TextMeshProUGUI text_skill;
-    public GameObject loading_berkerker;
-    public GameObject loading_berkerker_b;
-    public GameObject loading_archer;
-    public GameObject loading_archer_b;
+  //  public GameObject text_skill2;
+    public GameObject berserker_ui;
+    public GameObject archer_ui;
+    public Image loading_berserker;
+    public Image loading_berserker_b;
+    public Image loading_archer;
+    public Image loading_archer_b;
 
     public Image healthBarImage; // ÑªÌõÍ¼Æ¬
-    public Image loading_b;
+    //public Image loading_b;
 
     public GameObject originalPosition; // Ô­Ê¼Î»ÖÃ
 
@@ -77,31 +81,44 @@ public class BossComponent : MonoBehaviour
         }
         if (GlobalData.Instance.berserker)
         {
-            time2 = 10f;
             time2 -= Time.deltaTime;
+         //   text_skill2.SetActive(true);
             text_skill.text = "Berserker: " + (int)time2;
-            loading_b.fillAmount = time2/10f;
-            loading_berkerker.SetActive(true);
-            loading_berkerker_b.SetActive(true);
+            berserker_ui.SetActive(true);
+            loading_berserker.fillAmount = time2 / 10f;
+            if (time2 < 0)
+            {
+                GlobalData.Instance.berserker = false;
+                Debug.Log("berserker off");
+            }
         }
         else
         {
-            loading_berkerker.SetActive(false);
-            loading_berkerker_b.SetActive(false);
+            berserker_ui.SetActive(false);
+            time2 = 10f;
         }
         if (GlobalData.Instance.archer)
         {
-            time2 = 15f;
-            time2 -= Time.deltaTime;
-            text_skill.text = "Archer: " + (int)time2;
-            loading_b.fillAmount = time2 / 15f;
-            loading_archer.SetActive(true);
-            loading_archer_b.SetActive(true);
+
+            time3 -= Time.deltaTime;
+           // text_skill2.SetActive(true);
+            text_skill.text = "Archer: " + (int)time3;
+            archer_ui.SetActive(true);
+            loading_archer.fillAmount = time3 / 15f;
+            if (time3 <= 0)
+            {
+                GlobalData.Instance.archer = false;
+                Debug.Log("archer off");
+            }
         }
         else
         {
-            loading_archer.SetActive(false);
-            loading_archer_b.SetActive(false);
+            time3 = 15f;
+            archer_ui.SetActive(false);
+        }
+        if (!GlobalData.Instance.archer && !GlobalData.Instance.berserker)
+        {
+            text_skill.text = "";
         }
     }
 
@@ -151,16 +168,17 @@ public class BossComponent : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
-   // public void OnTriggerEnter(Collider collision)
+    //public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider collision)
     {
         //if (collision.gameObject.GetComponentInParent<Character>() != null)
         //{
         //    Debug.Log("¹¥»÷ÉËº¦£º"+ CharacterDamage);
         //    TakeDamage(CharacterDamage);
         //}
-        if (collision.gameObject.GetComponentInParent<Berserker>() != null)
-        {
+      //  if (collision.gameObject.GetComponentInParent<Berserker>() != null)
+        if (collision.GetComponent<Berserker>() != null)
+            {
             if (GlobalData.Instance.berserker)
             {
                 Debug.Log("¹¥»÷ÉËº¦£º" + berserker_on);
@@ -176,17 +194,17 @@ public class BossComponent : MonoBehaviour
             }
            
         }
-        if (collision.gameObject.GetComponentInParent<Archer>() != null)
+        if (collision.GetComponent<Archer>() != null)
         {
             Debug.Log("¹¥»÷ÉËº¦£º" + CharacterDamage);
             TakeDamage(CharacterDamage);
         }
-        if (collision.gameObject.GetComponentInParent<Sage>() != null)
+        if (collision.GetComponent<Sage>() != null)
         {
             Debug.Log("¹¥»÷ÉËº¦£º" + CharacterDamage);
             TakeDamage(CharacterDamage);
         }
-        if (collision.gameObject.GetComponentInParent<Knight>() != null)
+        if (collision.GetComponent<Knight>() != null)
         {
             Debug.Log("¹¥»÷ÉËº¦£º" + CharacterDamage);
             TakeDamage(CharacterDamage);
