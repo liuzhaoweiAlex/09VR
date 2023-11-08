@@ -12,15 +12,21 @@ public class GGScore : MonoBehaviour
     private string level_final="F";
     void Start()
     {
-        if (GlobalData.Instance.maxHealth >= 70)
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (GlobalData.Instance.lb >= 70)
         {
-            
+            level_final = "S";
         }
-        else if(GlobalData.Instance.maxHealth>=50)
+        else if (GlobalData.Instance.lb >= 50)
         {
             level_final = "A";
         }
-        else if (GlobalData.Instance.maxHealth >= 20)
+        else if (GlobalData.Instance.lb >= 20)
         {
             level_final = "B";
         }
@@ -28,12 +34,7 @@ public class GGScore : MonoBehaviour
         {
             level_final = "C";
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        finalScore.text = "Score: " + GlobalData.Instance.maxHealth + "/100";
+        finalScore.text = "Score: " + GlobalData.Instance.lb + "/100";
         level.text = "Level: " + level_final;
     }
 }
